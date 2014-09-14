@@ -36,10 +36,8 @@ return true;
 $email_post = strip_tags($_GET["email"]);
 if ($email_post !== '') {
    if (check_email_address($email_post) == true) {
-			 $to = "gdyer2@illinois.edu";
+			 $to = "team@news.gdyer.de";
 			 $headers = "From: bot@gdyer.de\r\nReply-To: bot@gdyer.de\r\n";
-			 //send the email
-			 $put = $email_post . "\r\n";
 			 $mail_sent = @mail( $to, "New NewsMapper sign-up", $email_post, $headers );
 			if ($mail_sent) header("Location: http://newsmapper.me/?s"); else header("Location: http://newsmapper.me/?e");
 		} else {
