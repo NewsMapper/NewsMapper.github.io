@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -23,6 +24,9 @@
 				background-origin: padding-box;
 				background-size: auto auto;
 			}
+			@media only screen and (max-width: 650px) {
+				.navbar {display: none;}
+			}
         </style>
     </head>
     <body>
@@ -43,7 +47,7 @@
 		<section class="login">
 			<div class="login-panel-top" id="login-template">
 				<h3>NewsMapper</h3>
-				<p class="text-primary" id="message">We're part of CS 196 at <a href="http://cs.illinois.edu" target="_blank">UIUC</a>&mdash;a student "incubator." Subscribe to our progress reports.</p>
+				<p class="text-primary" id="message">We're part of CS 196 at <a href="http://cs.illinois.edu" target="_blank">UIUC</a>&mdash;a student "incubator." Follow us here and on <a href="https://github.com/newsmapper">GitHub</a>.</p>
 				<form action="http://news.gdyer.de/v.php" method="get">
 					<div class="form-group">
 						<input placeholder="email (subscribe to our progress reports)" class="form-control bordered-input" id="email" name="email" type="email" required>
