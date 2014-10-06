@@ -15,8 +15,11 @@ $(document).ready(function(){
   var map = new google.maps.Map(document.getElementById('map-canvas'), options);
   function createMarker(point) {
       var latlng = new google.maps.LatLng(point["lat"],point["lon"]);
+      var content;
+      if ($(window).width > 600) content = '<div class="scrollFix">'+point["title"]+'</div>';
+      else content = point["title"];
       var infowindow = new google.maps.InfoWindow({
-        content: '<div class="scrollFix">'+point["title"]+'</div>'
+        content: content
       });
 
       var marker = new google.maps.Marker({
