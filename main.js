@@ -1,7 +1,7 @@
 $(document).ready(function(){
   $('#map-canvas').css('height', $(window).height() - 48 + 'px');
   var center;
-  if ($(window).width > 400) center = new google.maps.LatLng(40.105876,-88.228111);
+  if ($(window).width() > 400) center = new google.maps.LatLng(40.105876,-88.228111);
   else center = new google.maps.LatLng(40.107667,-88.228224);
   var options = {
       zoom: 16,
@@ -16,7 +16,7 @@ $(document).ready(function(){
   function createMarker(point) {
       var latlng = new google.maps.LatLng(point["lat"],point["lon"]);
       var content;
-      if ($(window).width > 600) content = '<div class="scrollFix">'+point["title"]+'</div>';
+      if ($(window).width() > 600) content = '<div class="scrollFix">' + point["title"] + '</div>';
       else content = point["title"];
       var infowindow = new google.maps.InfoWindow({
         content: content
