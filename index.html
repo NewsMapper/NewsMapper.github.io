@@ -1,84 +1,36 @@
+<!doctype html>
+<head>
+    <title>NewsMapper &middot; geographically visualizing local news</title>
+    
+    <link rel=stylesheet href="main.css" />
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet'>
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <meta name="author" content="the NewsMapper team" href="https://github.com/newsmapper" />
+    <meta name="description" content="Weclome to NewsMapper. We're creating news visualization tools at UIUC. Tell us your email address, and we'll keep you posted with our progress." />
+    <meta property="og:description" content="Weclome to NewsMapper. We're creating news visualization tools at UIUC. Tell us your email address, and we'll keep you posted with our progress." />
+    <meta name="viewport" id="viewport" content="width=device-width, user-scalable=no, minimum-scale=1, maximum-scale=1" />
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <title>NewsMapper &middot; sign up</title>
-        <meta name="viewport" content ="width=device-width,initial-scale=.85,user-scalable=no" />
-        <meta name="description" content="Weclome to NewsMapper. Tell us your email address, and we'll keep you posted with our progress." />
-        <link rel="stylesheet" type="text/css" href="https://gd-y.co/fontawesome/css/font-awesome.min.css" />
-        <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-        <link href="https://gd-y.co/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="https://gd-y.co/css/styles.css" rel="stylesheet" />
-        <link href="img/favicon.ico" rel="icon" />
-        <style>
-        	body {
-				background: none;
-				background-color: white;
-				background-image: none;
-				background-repeat: no-repeat;
-				background-attachment: scroll;
-				background-position: center 100px;
-				background-clip: border-box;
-				background-origin: padding-box;
-				background-size: auto auto;
-			}
-			@media only screen and (max-width: 650px) {
-				.navbar {display: none;}
-			}
-        </style>
-    </head>
-    <body>
-		<nav class="navbar container navbar-default navbar-fixed-top" role="navigation">
-		  <div class="navbar-header">
-		    <a style="color:font-family: 'Lato', sans-serif;font-size: 20px;text-shadow: none;font-weight: 300;color: #000;" class="navbar-brand" href="#">NewsMapper</a>
-		  </div>
-
-		  <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><p class="navbar-text" style="font-family: 'Lato', sans-serif;font-size: 14px;"><b>Geographically visualizing your news</b>
-                    </p>
-                    </li>
-                </ul>
-            </div>
-		</nav>
-
-		<section class="login">
-			<div class="login-panel-top" id="login-template">
-				<h3>NewsMapper</h3>
-				<p class="text-primary" id="message">We're part of CS 196 at <a href="http://cs.illinois.edu" target="_blank">UIUC</a>&mdash;a student "incubator." Follow us here and on <a href="https://github.com/newsmapper">GitHub</a>.</p>
-				<form action="http://news.gdyer.de/v.php" method="get">
-					<div class="form-group">
-						<input placeholder="email (subscribe to our progress reports)" class="form-control bordered-input" id="email" name="email" type="email" required>
-					</div>
-					<div class="pull-left">
-						<label><input pull-left type="checkbox" name="terms-and-conditions" required data-validation-required-message= "You must agree to the terms and conditions"> I agree with the <a target="_blank" href="http://easyaf.herokuapp.com/news" class="fpass">terms and conditions</a>.</label>
-					</div>
-					<div class="form-group">
-					</div>
-					<div class="pull-right">
-						<button id="contact-submit" type="submit" class="btn black input-medium pull-right">go</button>
-					</div>
-				</form>
-			 </div>
-		</section>
-		<script src="https://grahamd.net/jquery.min.js"></script>
-		<script>
-			var res = window.location.search;
-			if (res == "?s") {
-				document.getElementById("message").innerHTML = "You're on our list! Thank you for your time; we promise we'll put it to use!";
-				$('#message').removeClass('text-primary');
-				$('#message').addClass('text-success');
-			} else if (res == "?f") {
-				document.getElementById("message").innerHTML = "Oops! There was a problem processing that address; please try again.";
-				$('#message').removeClass('text-primary');
-				$('#message').addClass('text-danger');
-			} else if (res == "?e") {
-				document.getElementById("message").innerHTML = "Oops! There's a problem with our script. Please <a href='mailto:team@gdyer.de'>email us</a> ASAP!";
-				$('#message').removeClass('text-primary');
-				$('#message').addClass('text-warning');
-			}
-		</script>
-	</body>
-</html>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-TLHEFRk5d8lYU-hVqeHt4hfsyZVVrmQ"></script>
+    <script src="http://grahamd.net/static/jquery.min.js"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+    <header>
+        <span id="header-content">
+            <span style="cursor:pointer;">NewsMapper</span>
+            <span id="subheader">
+                geographically visualizing local news
+            </span>
+            <span id="right-header">
+                <form action="http://news.gdyer.de/v.php" method="get">
+                    <input id="field" placeholder="subscribe to updates" name="email" type="email" required/>
+                </form>
+                &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+                <a target=_blank href="https://github.com/newsmapper">Fork us on GitHub</a>
+            <span>
+        </span>
+    </header>
+    <div id="map-canvas"></div>
+</body>

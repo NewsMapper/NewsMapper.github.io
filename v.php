@@ -44,6 +44,6 @@ if ($email_post !== '') {
 			header("Location: http://newsmapper.me?f");
 	}
  } else {
-
+    header("Location: http://newsmapper.me");
  }
 ?>

@@ -1,0 +1,74 @@
+html, body, h1, header, input, span, form {margin: 0;  padding: 0; border: 0;  font-size: 100%;font: inherit;  vertical-align: baseline;}
+header {display: block;}
+body {line-height: 1;}
+header {
+    position: relative;
+    width: 100%;
+    color: #fff;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 24px;
+    line-height: 48px;
+    height: 48px; 
+    background: #003C7D;
+    text-align: left;
+}
+
+form {
+    display: inline;
+}
+
+#header-content {
+    padding-left: 20px;
+}
+
+
+#right-header {
+    float: right;
+    font-size: 70%;
+    padding-right: 10px;
+}
+
+#subheader {
+    font-size:60%;
+    opacity: .5;
+    padding-left: 1em;
+}
+
+#field {
+    border: 0;
+    font-size: 14px;
+    padding: 6px 12px;
+    line-height: 1.5;
+    text-align: center;
+    color: #555;
+    background-color: #fff;
+    border-radius: 2px;
+    margin: 0 auto;
+    height: 15px;
+    width: 125px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    -webkit-transition: all 0.15s ease-in-out 0s;
+    -o-transition: all 0.15s ease-in-out 0s;
+    -moz-transition: all 0.15s ease-in-out 0s;
+    transition: all 0.15s ease-in-out 0s;
+}
+
+a:hover {
+    box-shadow: 0px 1px 0px 0px #eee;
+}
+
+#map-canvas {
+    height: 37.5em;
+    overflow: auto;
+    position: relative;
+}
+
+@media only screen and (max-width: 700px) {
+    #right-header {display: none;}
+    #field {display:none;}
+    header {font-size: 20px;}
+}
