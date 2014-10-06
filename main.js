@@ -11,9 +11,9 @@ $(document).ready(function(){
 
   var map = new google.maps.Map(document.getElementById('map-canvas'), options);
   function createMarker(point) {
-        var latlng = new google.maps.LatLng(point["lat"],point["lon"]);
+      var latlng = new google.maps.LatLng(point["lat"],point["lon"]);
       var infowindow = new google.maps.InfoWindow({
-        content: point["title"]
+        content: '<div class="scrollFix">'+point["title"]+'</div>'
       });
 
       var marker = new google.maps.Marker({
