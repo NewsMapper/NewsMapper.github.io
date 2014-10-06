@@ -1,10 +1,13 @@
 $(document).ready(function(){
   $('#map-canvas').css('height', $(window).height() - 48 + 'px');
+  var center;
+  if ($(window).width > 400) center = new google.maps.LatLng(40.105876,-88.228111);
+  else center = new google.maps.LatLng(40.107667,-88.228224);
   var options = {
       zoom: 16,
       maxZoom: 20,
       minZoom: 4,
-      center: new google.maps.LatLng(40.105876,-88.228111),
+      center: center,
       mapTypeId: google.maps.MapTypeId.HYBRID,
       styles: [{"featureType":"road","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#fffffa"}]},{"featureType":"water","stylers":[{"lightness":50}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry","stylers":[{"lightness":40}]}]
   };

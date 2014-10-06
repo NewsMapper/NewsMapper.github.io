@@ -78,3 +78,9 @@ a:hover {
     #field {display:none;}
     header {font-size: 20px;}
 }
+
+@media only screen and (max-width: 400px) {
+    #header-content {padding-left: 10px;}
+    header {font-size: 16px;}
+    #subheader {font-size:75%;}
+}
