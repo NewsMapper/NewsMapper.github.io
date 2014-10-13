@@ -19,7 +19,6 @@ app.controller('controller', function($scope) {
 
 
 
-
 $(window).resize(function() {
   setBounds();
 });
@@ -156,13 +155,18 @@ $(document).ready(function() {
   var first = true;
   google.maps.event.addListener(map, "idle", function() {
     if (first) {
-      console.log('fo');
       if ($(window).width()>740) {
         $('#info-canvas').toggle('slide', { direction: 'left' }, 100);
         first = false;
       }
     }
     if ($(window).width()<740) $('#info-canvas').css('display', 'none');
+    else $('#info-canvas').css('display', 'block');
+  });
+
+  var pano = map.getStreetView();
+  google.maps.event.addListener(pano, 'visible_changed', function() {
+    if (pano.getVisible()) $('#info-canvas').css('display', 'none');
     else $('#info-canvas').css('display', 'block');
   });
 });
