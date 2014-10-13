@@ -1,9 +1,46 @@
-$(document).ready(function(){
-  $('#map-canvas').css('height', $(window).height() - 48 + 'px');
+function setBounds() {
+  var mh = $(window).height() - 48;
+  $('#map-canvas').css('height', mh + 'px'); // 48px is the height of the header
+  $('#info-canvas').css('height', (mh - 48) + 'px');
+}
+
+
+
+var app = angular.module('app', []);
+app.controller('controller', function($scope) {
+  $scope.news = [
+    {"id" : 1, "name" : "Todd"},
+    {"id" : 2, "name" : "Tom"},
+    {"id" : 3, "name" : "Graham"},
+    {"id" : 4, "name" : "Daniel"}
+  ];
+});
+
+
+
+
+
+$(window).resize(function() {
+  setBounds();
+});
+
+
+
+$(document).ready(function() {
+  setBounds();
+
   var center;
   if ($(window).width() > 400) center = new google.maps.LatLng(40.105876,-88.228111);
   else center = new google.maps.LatLng(40.107667,-88.228224);
   var options = {
+      panControl: false,
+      zoomControl: true,
+      zoomControlOptions: {
+        style: google.maps.ZoomControlStyle.SMALL
+      },
+      scaleControl: true,
+      mapTypeControl: false,
+      streetViewControl: false,
       zoom: 16,
       maxZoom: 20,
       minZoom: 4,
@@ -83,7 +120,7 @@ $(document).ready(function(){
     }
   }
   google.maps.event.addDomListener(window, 'load', initialize);
-
+  
   $('#field').click(function() {
     $('#field').css('border', 'none');
     $('#field').attr('placeholder', 'email@host.com');
@@ -115,4 +152,17 @@ $(document).ready(function(){
         $("#field").prop('disabled', true);
         $('#field').css('cursor', 'not-allowed');
   }
+
+  var first = true;
+  google.maps.event.addListener(map, "idle", function() {
+    if (first) {
+      console.log('fo');
+      if ($(window).width()>740) {
+        $('#info-canvas').toggle('slide', { direction: 'left' }, 100);
+        first = false;
+      }
+    }
+    if ($(window).width()<740) $('#info-canvas').css('display', 'none');
+    else $('#info-canvas').css('display', 'block');
+  });
 });
