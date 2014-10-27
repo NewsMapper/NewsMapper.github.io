@@ -4,21 +4,6 @@ function setBounds() {
   $('#info-canvas').css('height', (mh - 48) + 'px');
 }
 
-
-
-var app = angular.module('app', []);
-app.controller('controller', function($scope) {
-  $scope.news = [
-    {"id" : 1, "name" : "Todd"},
-    {"id" : 2, "name" : "Tom"},
-    {"id" : 3, "name" : "Graham"},
-    {"id" : 4, "name" : "Daniel"}
-  ];
-});
-
-
-
-
 $(window).resize(function() {
   setBounds();
 });
@@ -44,8 +29,8 @@ $(document).ready(function() {
       maxZoom: 20,
       minZoom: 4,
       center: center,
-      mapTypeId: google.maps.MapTypeId.HYBRID,
-      styles: [{"featureType":"road","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#fffffa"}]},{"featureType":"water","stylers":[{"lightness":50}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry","stylers":[{"lightness":40}]}]
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      styles: [{"stylers":[{"visibility":"on"},{"saturation":-100},{"gamma":0.54}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"color":"#4d4946"}]},{"featureType":"poi","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels.text","stylers":[{"visibility":"simplified"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"labels.text","stylers":[{"visibility":"simplified"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"gamma":0.48}]},{"featureType":"transit.station","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"gamma":7.18}]}]
   };
 
   var map = new google.maps.Map(document.getElementById('map-canvas'), options);
@@ -122,7 +107,7 @@ $(document).ready(function() {
   
   $('#field').click(function() {
     $('#field').css('border', 'none');
-    $('#field').attr('placeholder', 'email@host.com');
+    $('#field').attr('placeholder', 'you@serv.er');
   });
 
   $('body').click(function(e) {
@@ -135,23 +120,19 @@ $(document).ready(function() {
   var res = window.location.search;
   if (res == "?s") {
         $('#field').attr('placeholder', 'we got it; thank you!');
-        $('#field').css('background-color', '#003C7D');
-        $('#field').css('border', '1px solid #fff');
+        $('#field').css('border', '1px solid #333');
         $("#field").prop('disabled', true);
         $('#field').css('cursor', 'not-allowed');
   } else if (res == "?f") {
         $('#field').attr('placeholder', 'oops; please try again!');
-        $('#field').css('background-color', '#003C7D');
-        $('#field').css('border', '1px solid #F47F24');
+        $('#field').css('border', '1px solid #d43f3a');
   } else if (res == "?e") {
         $('#field').attr('placeholder', 'error; tell team@news.gdyer.de!');
-        $('#field').css('background-color', '#003C7D');
         $('#field').css('width', '200px');
-        $('#field').css('border', '1px solid #F47F24');
+        $('#field').css('border', '1px solid #d43f3a');
         $("#field").prop('disabled', true);
         $('#field').css('cursor', 'not-allowed');
   }
-
   var first = true;
   google.maps.event.addListener(map, "idle", function() {
     if (first) {
