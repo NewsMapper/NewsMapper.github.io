@@ -106,7 +106,7 @@ $(document).ready(function() {
   google.maps.event.addDomListener(window, 'load', initialize);
   
   $('#field').click(function() {
-    $('#field').css('border', 'none');
+    $('#field').css('text-align', 'left');
     $('#field').attr('placeholder', 'you@serv.er');
   });
 
