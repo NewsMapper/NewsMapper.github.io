@@ -79,15 +79,15 @@ $(document).ready(function() {
       {
         "lat" : 40.114066,
         "lon" : -88.224699,
-        "title" : "But if you tell us your email address above, we'll keep you posted."
+        "title" : "Tell us your email above to motivate us!"
       },{
         "lat" : 40.112409,
         "lon" : -88.226836,
-        "title" : "We're not ready for public consumption yet."
+        "title" : "We still need to find a server to host the live app (it's finished): github.com/newsmapper"
       },{
         "lat" : 40.109307,
         "lon" : -88.228347,
-        "title" : "Hello, welcome to NewsMapper."
+        "title" : "Hello, and welcome to NewsMapper."
       },{
         "lat" : 40.110858,
         "lon" : -88.226976,
